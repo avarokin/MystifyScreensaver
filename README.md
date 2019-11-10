@@ -5,7 +5,6 @@ This is my attempt to create/improve on a legacy Windows screensaver called Myst
 
 Instructions:
   Input speed in console, from a range of 1-5
-  * scrrensaver window launches
-  
+  (scrrensaver window launches)
   Press 'b' to change background color
   Press 'c' to change shape color
