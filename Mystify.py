@@ -14,21 +14,29 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 BACKGROUND_COLOR = (0, 0, 0)
 
-Line1 = [random.randint(0,WIDTH),random.randint(0,HEIGHT),random.randint(0,WIDTH),random.randint(0,HEIGHT)]
+Line = [random.randint(0, WIDTH), random.randint(0, HEIGHT), random.randint(0, WIDTH), random.randint(0, HEIGHT)]
 
-Line1d = [random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED)]
+LineD = [random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED),random.randint(-SPEED,SPEED)]
 
 surface = pygame.display.set_mode((WIDTH,HEIGHT))
 clock = pygame.time.Clock()
 
-def changeDirection():
-    print("hi")
+def changeDirection(Line, LineD):
+    if Line[0] < 0 or Line[0] > WIDTH:
+        LineD[0] = -LineD[0]
+    if Line[1] < 0 or Line[1] > HEIGHT:
+        LineD[1] = -LineD[1]
+    if Line[2] < 0 or Line[2] > WIDTH:
+        LineD[2] = -LineD[2]
+    if Line[3] < 0 or Line[3] > HEIGHT:
+        LineD[3] = -LineD[3]
 
-def update(Line):
-    Line[0] += Line1d[0]
-    Line[1] += Line1d[1]
-    Line[2] += Line1d[2]
-    Line[3] += Line1d[3]
+
+def update(Line,LineD):
+    Line[0] += LineD[0]
+    Line[1] += LineD[1]
+    Line[2] += LineD[2]
+    Line[3] += LineD[3]
 
 
 end = False
@@ -42,9 +50,10 @@ while not end:
 
     surface.fill(BACKGROUND_COLOR)
 
-    pygame.draw.line(surface,RED,(Line1[0],Line1[1]),(Line1[2],Line1[3]),THICKNESS)
+    pygame.draw.line(surface, RED, (Line[0], Line[1]), (Line[2], Line[3]), THICKNESS)
 
-    update(Line1)
+    update(Line,LineD)
+    changeDirection(Line,LineD)
 
     clock.tick(30)
     pygame.display.update()
