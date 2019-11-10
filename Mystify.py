@@ -4,11 +4,11 @@ import sys
 
 pygame.init()
 
-WIDTH = 1200
-HEIGHT = 800
+WIDTH = 1280
+HEIGHT = 720
 THICKNESS = 3
-DIFFERENCE = 10
-SPEED = 2
+DIFFERENCE = 15
+SPEED = 1
 
 Color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
 
@@ -197,5 +197,5 @@ while not end:
     changeDirection(Line16, Line16D)
 
 
-    clock.tick(30)
+    clock.tick(60)
     pygame.display.update()
