@@ -7,12 +7,15 @@ pygame.init()
 WIDTH = 1280
 HEIGHT = 720
 THICKNESS = 3
-DIFFERENCE = 15
-SPEED = 1
+DIFFERENCE = 25
 
 Color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
-
 BACKGROUND_COLOR = [0, 0, 0]
+
+surface = pygame.display.set_mode((WIDTH,HEIGHT))
+clock = pygame.time.Clock()
+
+SPEED = int(input("Enter speed(1-5) : "))
 
 # Rectangle 1
 Line1 = [random.randint(0, WIDTH), random.randint(0, HEIGHT), random.randint(0, WIDTH), random.randint(0, HEIGHT)]
@@ -37,8 +40,6 @@ Line13 = [Line1[0]+3*DIFFERENCE,Line1[1]+3*DIFFERENCE,Line1[2]+3*DIFFERENCE,Line
 Line14 = [Line13[2],Line13[3],Line2[2]+3*DIFFERENCE,Line2[3]+3*DIFFERENCE]
 Line15 = [Line14[2],Line14[3], Line3[2]+3*DIFFERENCE,Line3[3]+3*DIFFERENCE,]
 Line16 = [Line15[2],Line15[3], Line13[0], Line13[1]]
-
-
 
 
 # Rectangle 1
@@ -66,12 +67,6 @@ Line14D = [Line2D[0],Line2D[1],Line2D[2],Line2D[3]]
 Line15D = [Line3D[0],Line3D[1],Line3D[2],Line3D[3]]
 Line16D = [Line4D[0],Line4D[1],Line4D[2],Line4D[3]]
 
-
-
-
-
-surface = pygame.display.set_mode((WIDTH,HEIGHT))
-clock = pygame.time.Clock()
 
 def changeDirection(Line, LineD):
     if Line[0] < 0 or Line[0] > WIDTH:
@@ -165,9 +160,6 @@ while not end:
     update(Line14, Line14D)
     update(Line15, Line15D)
     update(Line16, Line16D)
-
-
-
 
 
 
